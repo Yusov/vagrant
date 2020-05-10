@@ -4,14 +4,14 @@
 Vagrant.configure(2) do |config|
 
   config.vm.box = "ubuntu/trusty64"
-  config.vm.hostname = "vagrant"
   config.vm.network :forwarded_port, guest: 80, host: 80
   config.vm.network :forwarded_port, guest: 3306, host: 3306
   config.vm.synced_folder ".", "/var/www/"
+  config.vm.hostname = "ubuntu"
 
   # For the running docker-compose automaticaly
   config.vm.provision :docker
-  config.vm.provision :docker_compose, yml: "/var/www/docker/docker-compose.yml", run: "always"
+  config.vm.provision :docker_compose, yml: "/var/www/docker/docker-compose.yml", rebuild: true, run: "always"
 
   # We are going to give VM 1/4 system memory & access to all cpu cores on the host
   config.vm.provider "virtualbox" do |vb|
