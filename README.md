@@ -15,3 +15,11 @@ For ssh connection to machine, run `vagrant ssh`.
 > Important! If you want to save the data of your containers in the virtual machine, you need to save it in the `Volumes`.
 
 # DONE!
+
+### Preinstalled
+
+Docker & docker-compose.
+
+### Exposed posrts by default
+80::80
+3606::3606
